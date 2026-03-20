@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.liquidator.budgettingapp.payment";
+option java_outer_classname = "PaymentProto";
+option objc_class_prefix = "PR";
+
+service PaymentService {
+  rpc StorePayment(StorePaymentRequest) returns(StorePaymentResponse) {};
+}
+
+message StorePaymentRequest {
+  string id = 1;
+  string title = 2;
+  double amount = 3;
+  repeated string categories = 4;
+}
+
+message StorePaymentResponse {
+  string id = 1;
+  string message = 2;
+}
